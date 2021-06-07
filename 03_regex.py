@@ -23,9 +23,9 @@ def check_phone(number):
 
 def check_email(email):
     emailRegex = re.compile(r'''(
-    (\w+)    #username
+    [a-zA-Z0-9._%+-]+    #username
     @
-    (\w+)   #hostname
+    [a-zA-Z0-9.-]+   #hostname
     \.
     (\w{2,3}) #extension
     )''', re.VERBOSE)
@@ -47,7 +47,7 @@ def check_ip(ip):
 
 
 def check_mac(mac):
-    macRegex = re.compile(r'(([0-9a-f]{4}(:|\.)){3}[0-9a-f])')
+    macRegex = re.compile(r'(([0-9a-f]{4}(:|\.)){2}[0-9a-f])', re.IGNORECASE)
     if macRegex.search(mac):
         print("This is a valid mac address")
     else:
